@@ -27,7 +27,7 @@ export default function Home() {
         </div>
         
         <p className="max-w-[700px] text-lg sm:text-xl text-[var(--muted-foreground)] leading-relaxed font-light">
-          Confidential DeFi payroll infrastructure. Employee salaries are encrypted using <span className="font-semibold text-white">iExec Nox FHE</span> and stored on <span className="font-semibold text-white">Arbitrum</span>.
+          Confidential DeFi payroll infrastructure. Employee salaries are encrypted using <span className="font-semibold text-white">iExec Nox TEE</span> and stored on <span className="font-semibold text-white">Arbitrum</span>.
         </p>
 
         {/* Connect Button Container */}
@@ -75,7 +75,7 @@ export default function Home() {
                 <tr>
                   <th className="p-5 font-semibold text-white">Action</th>
                   <th className="p-5 font-semibold text-white text-center">Visible on Arbiscan</th>
-                  <th className="p-5 font-semibold text-[var(--brand)] text-center text-glow">Protected by Nox FHE</th>
+                  <th className="p-5 font-semibold text-[var(--brand)] text-center text-glow">Protected by Nox TEE</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">

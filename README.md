@@ -3,7 +3,7 @@
   
   # 🛡️ ShadowRoll — Confidential DeFi Payroll Protocol
 
-  **Privacy-First Payroll Infrastructure Powered by Fully Homomorphic Encryption (FHE)**
+  **Privacy-First Payroll Infrastructure Powered by Trusted Execution Environment (TEE)**
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Network](https://img.shields.io/badge/Network-Arbitrum_Sepolia-blue)](https://sepolia.arbiscan.io/)
@@ -15,9 +15,12 @@
 
 ## 📌 Project Overview
 
-**ShadowRoll** is a decentralized payroll protocol that enables employers to pay employee salaries **on-chain** while keeping the **exact payment amounts completely confidential**. Using **Fully Homomorphic Encryption (FHE)** via the iExec Nox framework, salary data is encrypted at the smart contract level — ensuring that no one (not even blockchain explorers) can see how much each employee earns.
+**ShadowRoll** is a decentralized payroll protocol that enables employers to pay employee salaries **on-chain** while keeping the **exact payment amounts completely confidential**. Using **Trusted Execution Environment (TEE)** via the iExec Nox framework, salary data is encrypted at the smart contract level — ensuring that no one (not even blockchain explorers) can see how much each employee earns.
 
-Deployed on **Arbitrum Sepolia**, ShadowRoll provides a full-stack Web3 experience: from FHE-enabled smart contracts to a polished, glassmorphism-styled frontend.
+Deployed on **Arbitrum Sepolia**, ShadowRoll provides a full-stack Web3 experience: from TEE-enabled smart contracts to a polished, glassmorphism-styled frontend.
+
+### 🏆 Hackathon Track Alignment: Confidential DeFi & RWA
+ShadowRoll directly tackles the **Confidential DeFi** track by building a privacy-preserving financial primitive (Payroll & Yield Distribution). We leverage the principles of **ERC-7984** via the iExec Nox Protocol, utilizing a Trusted Execution Environment (TEE) to combine enterprise regulatory compliance (GDPR, UU PDP) with fully confidential on-chain interactions.
 
 ---
 
@@ -33,14 +36,14 @@ Traditional blockchains are **fully transparent by design**. While this is a fea
 
 ## 🟢 The ShadowRoll Solution
 
-ShadowRoll introduces a **Shielded Pool + FHE Ledger** architecture:
+ShadowRoll introduces a **Shielded Pool + TEE Ledger** architecture:
 1. **Employer** funds a shielded pool with a lump sum (amount is public, masking individual allocations).
-2. **Employer** schedules payments using FHE encryption (`euint256`). The exact amount assigned to each wallet is hidden.
+2. **Employer** schedules payments using TEE encryption (`euint256`). The exact amount assigned to each wallet is hidden.
 3. **Employees** decrypt their balances locally and execute partial/full unshielding to claim their tokens.
 
 ### Privacy Matrix
 
-| Action | Visible on Arbiscan | Protected by FHE |
+| Action | Visible on Arbiscan | Protected by TEE |
 |--------|--------------------|--------------------|
 | Pool Funding | ✅ Total Deposit Amount | 🔒 Individual Salary Allocations |
 | Salary Schedule | ✅ Wallet Addresses | 🔒 Exact Payment Amount |
@@ -52,7 +55,7 @@ ShadowRoll introduces a **Shielded Pool + FHE Ledger** architecture:
 
 - **Batch Payroll Processing:** Encrypt and schedule multiple salaries in a single, gas-efficient transaction.
 - **Recurring Salary Schedules:** Create automated, recurring encrypted payment schedules (e.g., monthly auto-pay).
-- **FHE Data Encryption:** Salary amounts encrypted using `euint256` on-chain.
+- **TEE Data Encryption:** Salary amounts encrypted using `euint256` on-chain.
 - **Live Event Monitoring:** Real-time on-chain event monitoring for Deposits, Schedules, and Revokes via `viem`.
 - **Recipient Privacy:** Partial unshielding allows employees to withdraw a portion of their salary while keeping the remaining balance completely hidden.
 
@@ -70,7 +73,7 @@ ShadowRoll introduces a **Shielded Pool + FHE Ledger** architecture:
 - **Network:** Arbitrum Sepolia
 - **Language:** Solidity 0.8.24
 - **Framework:** Hardhat
-- **Cryptography:** iExec Nox FHE (Abstraction layer ready for mainnet SDK)
+- **Cryptography:** iExec Nox TEE (Abstraction layer ready for mainnet SDK)
 
 ---
 
@@ -109,11 +112,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🗺️ Roadmap Status
 
-- ✅ **v0.1** Core FHE payroll contract
+- ✅ **v0.1** Core TEE payroll contract
 - ✅ **v0.2** Frontend with Wagmi v2 + RainbowKit
 - ✅ **v0.3** Security audit & hardening
 - ✅ **v0.4** Total Scheduled, Activity Log, UX Polish
-- ✅ **v1.0** Real iExec Nox FHE SDK integration (via abstraction layer)
+- ✅ **v1.0** Real iExec Nox TEE SDK integration (via abstraction layer)
 - ✅ **v1.1** Batch payroll (multi-recipient in single tx)
 - ✅ **v1.2** Historical event service (alternative to The Graph)
 - ✅ **v1.3** Recurring salary schedules (monthly auto-pay)
@@ -130,5 +133,5 @@ Follow the development and updates of ShadowRoll:
 
 <p align="center">
   <b>ShadowRoll</b> — Your salary. Your secret.<br/>
-  <i>Built on &lt;euint256&gt; Architecture // Powered by iExec Nox FHE</i>
+  <i>Built on &lt;euint256&gt; Architecture // Powered by iExec Nox TEE</i>
 </p>

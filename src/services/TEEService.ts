@@ -1,16 +1,16 @@
 /**
- * ShadowRoll FHE Service Layer (v1.0)
+ * ShadowRoll TEE Service Layer (v1.0)
  * 
- * Abstraction layer for iExec Nox Fully Homomorphic Encryption.
+ * Abstraction layer for iExec Nox Trusted Execution Environment.
  * Currently uses a mock implementation for testnet.
  * When the real iExec Nox SDK becomes available, replace the
- * `MockFHEProvider` with `IExecNoxProvider` — zero frontend changes needed.
+ * `MockTEEProvider` with `IExecNoxProvider` — zero frontend changes needed.
  */
 
 import { encodeAbiParameters, parseAbiParameters } from "viem";
 
-// === FHE Provider Interface ===
-export interface FHEProvider {
+// === TEE Provider Interface ===
+export interface TEEProvider {
   name: string;
   encrypt(plaintext: bigint): Promise<`0x${string}`>;
   decrypt(ciphertext: `0x${string}`): Promise<bigint>;
@@ -19,8 +19,8 @@ export interface FHEProvider {
 }
 
 // === Mock Provider (Current Testnet Implementation) ===
-class MockFHEProvider implements FHEProvider {
-  name = "Nox FHE Mock (Testnet)";
+class MockTEEProvider implements TEEProvider {
+  name = "Nox TEE Mock (Testnet)";
 
   async encrypt(plaintext: bigint): Promise<`0x${string}`> {
     // ABI-encode the uint256 value as bytes (matches NoxLibrary.sol mock)
@@ -32,7 +32,7 @@ class MockFHEProvider implements FHEProvider {
 
   async decrypt(ciphertext: `0x${string}`): Promise<bigint> {
     // In mock mode, the "ciphertext" is just ABI-encoded plaintext
-    // Real FHE would require TEE decryption via iExec
+    // Real TEE would require TEE decryption via iExec
     const value = BigInt(ciphertext);
     return value;
   }
@@ -61,8 +61,8 @@ class MockFHEProvider implements FHEProvider {
 //
 // import { IExecDataProtector } from "@iexec/dataprotector";
 //
-// class IExecNoxProvider implements FHEProvider {
-//   name = "iExec Nox FHE (Production)";
+// class IExecNoxProvider implements TEEProvider {
+//   name = "iExec Nox TEE (Production)";
 //   private protector: IExecDataProtector;
 //
 //   constructor() {
@@ -85,7 +85,7 @@ class MockFHEProvider implements FHEProvider {
 //   }
 //
 //   async add(a: `0x${string}`, b: `0x${string}`): Promise<`0x${string}`> {
-//     // FHE homomorphic addition via iExec TEE
+//     // TEE homomorphic addition via iExec TEE
 //     throw new Error("Homomorphic add requires TEE execution");
 //   }
 //
@@ -95,13 +95,13 @@ class MockFHEProvider implements FHEProvider {
 // }
 
 // === Singleton Service ===
-class FHEService {
-  private provider: FHEProvider;
+class TEEService {
+  private provider: TEEProvider;
 
   constructor() {
     // Switch provider here when moving to production:
     // this.provider = new IExecNoxProvider();
-    this.provider = new MockFHEProvider();
+    this.provider = new MockTEEProvider();
   }
 
   getProviderName(): string {
@@ -126,5 +126,5 @@ class FHEService {
 }
 
 // Export singleton instance
-export const fheService = new FHEService();
-export default fheService;
+export const teeService = new TEEService();
+export default teeService;

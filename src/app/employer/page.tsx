@@ -243,7 +243,7 @@ export default function EmployerPage() {
       return;
     }
 
-    setStatusMsg({ type: "info", text: "Encrypting via FHE Enclave..." });
+    setStatusMsg({ type: "info", text: "Encrypting via TEE Enclave..." });
     try {
       const parsedSalary = parseEther(salaryAmount);
       const encryptedBytes = encodeAbiParameters(
@@ -281,7 +281,7 @@ export default function EmployerPage() {
       return;
     }
 
-    setStatusMsg({ type: "info", text: "Encrypting batch data via FHE Enclave..." });
+    setStatusMsg({ type: "info", text: "Encrypting batch data via TEE Enclave..." });
     try {
       const encryptedAmounts = amountsArr.map(amount => {
         const parsedSalary = parseEther(amount);
@@ -321,7 +321,7 @@ export default function EmployerPage() {
       return;
     }
 
-    setStatusMsg({ type: "info", text: "Encrypting recurring schedule via FHE Enclave..." });
+    setStatusMsg({ type: "info", text: "Encrypting recurring schedule via TEE Enclave..." });
     try {
       const parsedSalary = parseEther(recurringAmount);
       const encryptedBytes = encodeAbiParameters(
@@ -394,7 +394,7 @@ export default function EmployerPage() {
           </Link>
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-white">Employer Dashboard</h1>
-            <p className="text-[var(--muted-foreground)] mt-1 font-mono text-xs uppercase tracking-widest opacity-70">Nox FHE Console</p>
+            <p className="text-[var(--muted-foreground)] mt-1 font-mono text-xs uppercase tracking-widest opacity-70">Nox TEE Console</p>
           </div>
         </div>
         <ConnectButton />
@@ -529,7 +529,7 @@ export default function EmployerPage() {
                   <div className="animate-fade-in">
                     <h3 className="text-xl font-bold mb-2 text-white">Schedule Confidential Salary</h3>
                     <p className="text-[var(--muted-foreground)] text-sm mb-6 leading-relaxed">
-                      Encrypts the exact amount on-chain using Nox FHE. No tokens are transferred in this step.
+                      Encrypts the exact amount on-chain using Nox TEE. No tokens are transferred in this step.
                     </p>
                     <form onSubmit={handleSchedule} className="flex flex-col gap-5">
                       <div>
@@ -560,7 +560,7 @@ export default function EmployerPage() {
                         </div>
                       </div>
                       <button type="submit" disabled={isLoading || !recipient || !salaryAmount} className="btn-primary flex justify-center gap-2 items-center mt-2">
-                        {isLoading ? <><Loader2 className="w-5 h-5 animate-spin" /> Encrypting...</> : <><Lock className="w-5 h-5" /> FHE Encrypt & Schedule</>}
+                        {isLoading ? <><Loader2 className="w-5 h-5 animate-spin" /> Encrypting...</> : <><Lock className="w-5 h-5" /> TEE Encrypt & Schedule</>}
                       </button>
                     </form>
                   </div>
@@ -600,7 +600,7 @@ export default function EmployerPage() {
                         </div>
                       </div>
                       <button type="submit" disabled={isLoading || !batchRecipients || !batchAmounts} className="btn-primary flex justify-center gap-2 items-center mt-2">
-                        {isLoading ? <><Loader2 className="w-5 h-5 animate-spin" /> Encrypting Batch...</> : <><Users className="w-5 h-5" /> FHE Encrypt & Batch Schedule</>}
+                        {isLoading ? <><Loader2 className="w-5 h-5 animate-spin" /> Encrypting Batch...</> : <><Users className="w-5 h-5" /> TEE Encrypt & Batch Schedule</>}
                       </button>
                     </form>
                   </div>
@@ -670,7 +670,7 @@ export default function EmployerPage() {
                   <div className="animate-fade-in">
                     <h3 className="text-xl font-bold mb-2 text-white">Revoke Scheduled Payment</h3>
                     <p className="text-[var(--muted-foreground)] text-sm mb-6 leading-relaxed">
-                      Cancel an un-claimed payment. The encrypted balance will be zeroed out in the FHE ledger.
+                      Cancel an un-claimed payment. The encrypted balance will be zeroed out in the TEE ledger.
                     </p>
                     <div className="flex flex-col gap-5">
                       <div>
@@ -748,7 +748,7 @@ export default function EmployerPage() {
               </div>
               <div className="p-4 border-t border-white/10 bg-[#0a0a0a]">
                 <div className="text-[11px] font-mono text-[var(--muted-foreground)] flex items-center justify-center gap-2 uppercase tracking-widest">
-                  <ShieldCheck className="w-4 h-4 text-white/50" /> Data secured by euint256 FHE
+                  <ShieldCheck className="w-4 h-4 text-white/50" /> Data secured by euint256 TEE
                 </div>
               </div>
             </div>

@@ -203,7 +203,7 @@ export default function RecipientPage() {
       ) : isChecking ? (
         <div className="flex flex-col items-center justify-center py-20 text-center w-full max-w-xl animate-fade-in">
           <Loader2 className="w-12 h-12 animate-spin text-white mb-6 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
-          <p className="text-[var(--muted-foreground)] font-mono text-sm tracking-widest uppercase">Scanning FHE Enclave...</p>
+          <p className="text-[var(--muted-foreground)] font-mono text-sm tracking-widest uppercase">Scanning TEE Enclave...</p>
         </div>
       ) : isEligible ? (
         <div className="glass-panel p-10 flex flex-col items-center text-center w-full max-w-xl animate-slide-up relative overflow-hidden group">
@@ -303,7 +303,7 @@ export default function RecipientPage() {
              <Lock className="w-10 h-10 text-white/20" />
           </div>
           <h2 className="text-2xl font-bold mb-3 text-white/50">No Pending Payments</h2>
-          <p className="text-[var(--muted-foreground)] text-sm">Your connected wallet address does not have any active confidential salaries scheduled in the FHE ledger.</p>
+          <p className="text-[var(--muted-foreground)] text-sm">Your connected wallet address does not have any active confidential salaries scheduled in the TEE ledger.</p>
         </div>
       )}
     </main>

@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "ShadowRoll — Private On-Chain Payroll by iExec Nox",
-  description: "ShadowRoll is a confidential DeFi payroll protocol built on iExec Nox FHE and Arbitrum Sepolia. Employers deposit tokens into a shielded pool and distribute encrypted salaries. Recipients withdraw privately without exposing their total compensation.",
+  description: "ShadowRoll is a confidential DeFi payroll protocol built on iExec Nox TEE and Arbitrum Sepolia. Employers deposit tokens into a shielded pool and distribute encrypted salaries. Recipients withdraw privately without exposing their total compensation.",
 };
 
 export default function RootLayout({
