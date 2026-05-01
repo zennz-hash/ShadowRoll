@@ -1,0 +1,69 @@
+{
+  "specVersion": "0.0.5",
+  "schema": {
+    "file": "./schema.graphql"
+  },
+  "dataSources": [
+    {
+      "kind": "ethereum",
+      "name": "ShadowRoll",
+      "network": "arbitrum-sepolia",
+      "source": {
+        "address": "0x800d1BdbfB01BdCCCEC1884bD57D2148227a6215",
+        "abi": "ShadowRoll",
+        "startBlock": 0
+      },
+      "mapping": {
+        "kind": "ethereum/events",
+        "apiVersion": "0.0.7",
+        "language": "wasm/assemblyscript",
+        "entities": [
+          "PoolFund",
+          "PaymentSchedule",
+          "PaymentClaim",
+          "PaymentRevocation",
+          "BatchPaymentSchedule",
+          "RecurringScheduleEntity",
+          "RecurringPaymentExecution"
+        ],
+        "abis": [
+          {
+            "name": "ShadowRoll",
+            "file": "../src/ShadowRollABI.json"
+          }
+        ],
+        "eventHandlers": [
+          {
+            "event": "PoolFunded(indexed address,uint256)",
+            "handler": "handlePoolFunded"
+          },
+          {
+            "event": "PaymentScheduled(indexed address,indexed address)",
+            "handler": "handlePaymentScheduled"
+          },
+          {
+            "event": "PaymentClaimed(indexed address)",
+            "handler": "handlePaymentClaimed"
+          },
+          {
+            "event": "PaymentRevoked(indexed address,indexed address)",
+            "handler": "handlePaymentRevoked"
+          },
+          {
+            "event": "BatchPaymentScheduled(indexed address,uint256)",
+            "handler": "handleBatchPaymentScheduled"
+          },
+          {
+            "event": "RecurringScheduleCreated(indexed address,indexed address,uint256)",
+            "handler": "handleRecurringScheduleCreated"
+          },
+          {
+            "event": "RecurringPaymentExecuted(indexed address,indexed address)",
+            "handler": "handleRecurringPaymentExecuted"
+          }
+        ],
+        "file": "./src/mapping.ts"
+      }
+    }
+  ]
+}

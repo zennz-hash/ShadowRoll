@@ -1,0 +1,68 @@
+"""
+ShadowRoll Subgraph Schema
+Deployed on The Graph for persistent, queryable transaction history.
+"""
+
+type PoolFund @entity {
+  id: ID!
+  employer: Bytes!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PaymentSchedule @entity {
+  id: ID!
+  employer: Bytes!
+  recipient: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PaymentClaim @entity {
+  id: ID!
+  recipient: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PaymentRevocation @entity {
+  id: ID!
+  employer: Bytes!
+  recipient: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BatchPaymentSchedule @entity {
+  id: ID!
+  employer: Bytes!
+  count: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RecurringScheduleEntity @entity {
+  id: ID!
+  employer: Bytes!
+  recipient: Bytes!
+  intervalSeconds: BigInt!
+  active: Boolean!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RecurringPaymentExecution @entity {
+  id: ID!
+  employer: Bytes!
+  recipient: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
