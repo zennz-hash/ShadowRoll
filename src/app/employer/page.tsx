@@ -471,12 +471,12 @@ export default function EmployerPage() {
             {/* Left: Action Panel */}
             <div className="glass-panel overflow-hidden flex flex-col">
               {/* Tabs */}
-              <div className="flex border-b border-white/10 bg-black/40">
+              <div className="flex border-b border-white/10 bg-black/40 overflow-x-auto whitespace-nowrap scrollbar-hide">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => { setActiveTab(tab.id); setStatusMsg(null); }}
-                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-4 text-sm font-semibold transition-all duration-300 relative ${
+                    className={`flex-none flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold transition-all duration-300 relative ${
                       activeTab === tab.id
                         ? "text-white bg-white/5"
                         : "text-gray-500 hover:text-white hover:bg-white/[0.02]"

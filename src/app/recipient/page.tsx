@@ -282,19 +282,7 @@ export default function RecipientPage() {
               </div>
             )}
 
-            {isUnshieldSuccess && unshieldTxHash && (
-              <div className="mt-6 p-5 w-full bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex flex-col items-center gap-4 animate-fade-in">
-                <span className="text-sm text-emerald-400 font-medium">Funds unshielded successfully.</span>
-                <a 
-                  href={`https://sepolia.arbiscan.io/tx/${unshieldTxHash}`} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="text-xs bg-black/40 text-white/80 border border-white/10 px-5 py-3 rounded-xl hover:bg-white/10 hover:text-white transition-all flex items-center gap-2 font-mono break-all text-center w-full justify-center group"
-                >
-                  View on Arbiscan <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            )}
+            {/* Transaction hash display moved to bottom */}
           </div>
         </div>
       ) : (
@@ -304,6 +292,27 @@ export default function RecipientPage() {
           </div>
           <h2 className="text-2xl font-bold mb-3 text-white/50">No Pending Payments</h2>
           <p className="text-[var(--muted-foreground)] text-sm">Your connected wallet address does not have any active confidential salaries scheduled in the TEE ledger.</p>
+        </div>
+      )}
+
+      {/* Persistent Transaction Receipt */}
+      {isUnshieldSuccess && unshieldTxHash && (
+        <div className="mt-8 p-6 w-full max-w-xl bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex flex-col items-center gap-4 animate-slide-up shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+            <span className="text-lg text-emerald-400 font-semibold">Funds unshielded successfully!</span>
+          </div>
+          <p className="text-sm text-[var(--muted-foreground)] text-center mb-2">
+            Your transaction has been confirmed on the Arbitrum Sepolia network.
+          </p>
+          <a 
+            href={`https://sepolia.arbiscan.io/tx/${unshieldTxHash}`} 
+            target="_blank" 
+            rel="noreferrer"
+            className="btn-secondary text-sm px-6 py-3 w-full justify-center group"
+          >
+            View Receipt on Arbiscan <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
       )}
     </main>
